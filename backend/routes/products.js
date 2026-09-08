@@ -8,10 +8,11 @@ router.get("/", async (req, res) => {
   try {
     const { search, category, featured } = req.query;
     const filter = {};
-    if (search) filter.$or = [
-      { name: { $regex: search, $options: "i" } },
-      { description: { $regex: search, $options: "i" } }
-    ];
+    if (search)
+      filter.$or = [
+        { name: { $regex: search, $options: "i" } },
+        { description: { $regex: search, $options: "i" } },
+      ];
     if (category && category !== "all") filter.category = category;
     if (featured === "true") filter.featured = true;
 
@@ -48,7 +49,10 @@ router.post("/", protect, adminOnly, async (req, res) => {
 
 router.put("/:id", protect, adminOnly, async (req, res) => {
   try {
-    const product = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
     if (!product) return res.status(404).json({ message: "Product not found" });
     res.json(product);
   } catch {
