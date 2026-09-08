@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Register — NovaCart</title><link rel="stylesheet" href="/css/style.css"></head>
+<body>
+    <header class="header">
+        <a class="brand" href="/">
+        <span>✦</span> NovaCart</a>
+        <nav>
+            <a href="/">Shop</a><a href="/login.html">Login</a>
+        </nav>
+    </header>
+<main class="auth-page">
+    <form id="registerForm" class="auth-card">
+        <span class="eyebrow">JOIN NOVACART</span>
+        <h1>Create account</h1>
+        <p>Save your orders and checkout faster.</p>
+        <label>Name<input name="name" required placeholder="Your name"></label>
+        <label>Email<input name="email" type="email" required placeholder="you@example.com"></label>
+        <label>Password<input name="password" type="password" minlength="6" required placeholder="At least 6 characters"></label>
+        <button class="btn primary full">Create account</button>
+        <div id="registerError" class="error"></div>
+        <p>Already registered? <a href="/login.html">Sign in</a></p>
+    </form>
+</main>
+<script src="/js/app.js"></script>
+</body>
+</html>
